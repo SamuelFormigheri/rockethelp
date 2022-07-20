@@ -49,7 +49,7 @@ export function Order({
                         size={15}
                         color={colors.gray[300]}
                     />
-                    <Text color="gray.200" fontSize={"XS"} ml={1}>
+                    <Text color="gray.200" fontSize="xs" ml={1}>
                         {data.when}
                     </Text>
                 </HStack>
