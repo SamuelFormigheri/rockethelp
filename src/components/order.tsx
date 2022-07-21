@@ -1,15 +1,9 @@
 import { HStack, Text, Box, useTheme, VStack, Circle, Pressable, IPressableProps } from 'native-base';
 import { ClockAfternoon, Hourglass, CircleWavyCheck } from 'phosphor-react-native';
-
-export type IOrderProps = {
-    id: string;
-    patrimony: string;
-    when: string;
-    status: "open" | "closed";
-}
+import { IOrder } from '../DTOs/Order';
 
 type Props = IPressableProps & {
-    data: IOrderProps;
+    data: IOrder;
 }
 
 export function Order({
@@ -50,7 +44,7 @@ export function Order({
                         color={colors.gray[300]}
                     />
                     <Text color="gray.200" fontSize="xs" ml={1}>
-                        {data.when}
+                        {data.created_at}
                     </Text>
                 </HStack>
             </VStack>

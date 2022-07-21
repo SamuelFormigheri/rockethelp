@@ -1,10 +1,12 @@
 import { IconButton, HStack, useTheme } from 'native-base';
 import { SignOut } from 'phosphor-react-native';
 import Logo from "../assets/logo_primary.svg";
+import { useAuth } from '../contexts/auth';
 
 export function Header() {
     const {colors} = useTheme();
-    
+    const {logOut} = useAuth();
+
   return (
     <HStack
         w="full"
@@ -22,6 +24,7 @@ export function Header() {
                 size={26}
                 color={colors.gray[300]}
             />}
+            onPress={logOut}
         />
     </HStack>
   );

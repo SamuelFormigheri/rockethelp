@@ -5,18 +5,18 @@ import { Envelope, Key } from "phosphor-react-native";
 import Logo from "../assets/logo_primary.svg";
 import { Button } from "../components/button";
 import { IInputRefProps, Input } from "../components/input";
+import { useAuth } from "../contexts/auth";
+
 
 export function SignIn(){
+    const { isLoading, authenticate } = useAuth();
     const refEmail = useRef<IInputRefProps>();
     const refPassword = useRef<IInputRefProps>();
 
     const {colors} = useTheme();
 
     function handleSignIn(){
-        console.log(
-            refEmail.current.value,
-            refPassword.current.value
-        );
+        authenticate(refEmail.current.value, refPassword.current.value);
     }
 
     return(
@@ -52,6 +52,7 @@ export function SignIn(){
                 title="Entrar"
                 w="full"
                 onPress={handleSignIn}
+                isLoading={isLoading}
             />
         </VStack>
     )

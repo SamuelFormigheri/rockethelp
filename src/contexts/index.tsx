@@ -1,7 +1,10 @@
 import { NativeBaseProvider } from "./nativeBase";
+import { AuthProvider } from "./auth";
 
 export function BaseProvider({children}){
     return <NativeBaseProvider>
-        {children}
+        <AuthProvider>
+            {children}
+        </AuthProvider>
     </NativeBaseProvider>
 }

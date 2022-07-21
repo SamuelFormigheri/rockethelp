@@ -10,7 +10,7 @@ const InputComponent: ForwardRefRenderFunction<IInputRefProps, IInputProps> = ({
     ...props
 }, ref) => {
   const internalRef = ref ?? useRef<IInputRefProps>();
-  const [inputState, setInputState] = useState("");
+  const [inputState, setInputState] = useState(props.value ?? "");
 
   useImperativeHandle(internalRef, () => ({
     value: inputState,
